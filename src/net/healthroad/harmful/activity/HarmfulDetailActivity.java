@@ -7,6 +7,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
@@ -77,6 +78,28 @@ public class HarmfulDetailActivity extends Activity {
         String title = getTitleString();
         TextView tv = (TextView) bar.getCustomView().findViewById(R.id.text_g_title);
         tv.setText(title);
+
+        // 메인으로 이동 버튼
+        Button buttonHome = (Button) bar.getCustomView().findViewById(R.id.button_home);
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                int vId = view.getId();
+                switch (vId) {
+                    case R.id.button_home:
+                        Intent hIntent = new Intent();
+                        hIntent.setClass(getApplicationContext(), SplashActivity.class);
+                        startActivity(hIntent);
+
+                        finish();
+                        overridePendingTransition(R.anim.push_left_in, R.anim.push_up_out);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
         // 모드 설정
         bar.setDisplayHomeAsUpEnabled(true);

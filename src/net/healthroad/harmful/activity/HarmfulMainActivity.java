@@ -69,6 +69,29 @@ public class HarmfulMainActivity extends Activity {
         TextView tv = (TextView) bar.getCustomView().findViewById(R.id.text_g_title);
         tv.setText("담배 유해 정보");
 
+        // 메인으로 이동 버튼
+        Button buttonHome = (Button) bar.getCustomView().findViewById(R.id.button_home);
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                int vId = view.getId();
+                switch (vId) {
+                    case R.id.button_home:
+                        Intent hIntent = new Intent();
+                        hIntent.setClass(getApplicationContext(), SplashActivity.class);
+                        startActivity(hIntent);
+
+                        finish();
+                        overridePendingTransition(R.anim.push_left_in, R.anim.push_up_out);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+
         // 모드 설정
         bar.setDisplayHomeAsUpEnabled(true);
     }

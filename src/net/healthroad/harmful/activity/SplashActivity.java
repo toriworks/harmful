@@ -3,6 +3,7 @@ package net.healthroad.harmful.activity;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import net.healthroad.harmful.R;
+import net.healthroad.harmful.util.ToxinDBAdapter;
 
 public class SplashActivity extends Activity {
 
@@ -130,6 +132,11 @@ public class SplashActivity extends Activity {
                     break;
                 case R.id.button_toxin:
                     Log.d(TAG, "button_toxin clicked...");
+
+                    ToxinDBAdapter dbAdapter = new ToxinDBAdapter(getApplicationContext());
+                    dbAdapter = dbAdapter.open();
+                    Cursor allCursor = dbAdapter.fetchAllToxins();
+
                     break;
                 default:
                     break;

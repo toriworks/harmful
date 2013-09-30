@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Harmful</string>
+    <string name="btn_harmful">담배 유해 정보</string>
+    <string name="btn_toxin">담배 독성 물질</string>
+    <string name="btn_harmful_info">담배 유해성 정보</string>
+    <string name="btn_harmful_component">담배 유해 성분</string>
+    <string name="btn_harmful_effect">담배가 인체에 끼지는 영향</string>
+
+
+    <!-- Colors -->
+    <color name="default_white">#ffffff</color>
+</resources>

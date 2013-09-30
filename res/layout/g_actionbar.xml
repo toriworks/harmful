@@ -17,8 +17,8 @@
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:layout_marginRight="10sp"
-            android:id="@+id/image_home"
-            android:background="@drawable/ic_home"
+            android:id="@+id/button_home"
+            android:background="@drawable/ic_home_selector"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/text_g_title"/>
 </RelativeLayout>

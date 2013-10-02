@@ -132,11 +132,10 @@ public class SplashActivity extends Activity {
                     break;
                 case R.id.button_toxin:
                     Log.d(TAG, "button_toxin clicked...");
-
-                    ToxinDBAdapter dbAdapter = new ToxinDBAdapter(getApplicationContext());
-                    dbAdapter = dbAdapter.open();
-                    Cursor allCursor = dbAdapter.fetchAllToxins();
-
+                    Intent tIntent = new Intent();
+                    tIntent.setClass(getApplicationContext(), ToxinMainActivity.class);
+                    startActivity(tIntent);
+                    overridePendingTransition(R.anim.anim_window_in, R.anim.anim_window_out);
                     break;
                 default:
                     break;

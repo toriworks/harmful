@@ -10,12 +10,18 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_harmful"
             android:id="@+id/button_harmful"
-            android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+            android:layout_centerHorizontal="true" android:layout_centerVertical="true"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/default_white"
+            android:layout_margin="10sp" />
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_toxin"
-            android:id="@+id/button_toxin" android:layout_centerHorizontal="true" android:layout_below="@+id/button_harmful"/>
+            android:id="@+id/button_toxin" android:layout_centerHorizontal="true" android:layout_below="@+id/button_harmful"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/default_white"
+            android:layout_margin="10sp" />
 
     <ImageView
             android:layout_width="wrap_content"

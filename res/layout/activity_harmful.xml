@@ -11,19 +11,28 @@
             android:text="@string/btn_harmful_info"
             android:id="@+id/button_harmful_info"
             android:layout_above="@+id/button_harmful_component"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/default_white"
+            android:layout_margin="10sp" />
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_harmful_component"
             android:id="@+id/button_harmful_component"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/default_white"
+            android:layout_margin="10sp" />
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_harmful_effect"
             android:id="@+id/button_harmful_effect"
             android:layout_below="@+id/button_harmful_component"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_selector"
+            android:textColor="@color/default_white"
+            android:layout_margin="10sp" />
 </RelativeLayout>

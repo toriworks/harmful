@@ -7,6 +7,8 @@
     <string name="btn_harmful_component">담배 유해 성분</string>
     <string name="btn_harmful_effect">담배가 인체에 끼지는 영향</string>
 
+    <!-- Font size -->
+    <dimen name="default_font_size">20sp</dimen>
 
     <!-- Colors -->
     <color name="default_white">#ffffff</color>

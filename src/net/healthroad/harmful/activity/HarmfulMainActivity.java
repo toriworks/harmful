@@ -91,7 +91,6 @@ public class HarmfulMainActivity extends Activity {
             }
         });
 
-
         // 모드 설정
         bar.setDisplayHomeAsUpEnabled(true);
     }

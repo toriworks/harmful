@@ -10,13 +10,13 @@ public class ToxinDBAdapter {
 
     private static final String TAG = "Harmful";
 
-    public static final String KEY_ROWID = "_id";
+    public static final String KEY_ROWID = "rowid";
     public static final String KEY_KOR = "kor";
     public static final String KEY_ENG = "eng";
     public static final String KEY_KEYWORD = "keyword";
     public static final String KEY_CONTENTS = "contents";
 
-    private static final String DATABASE_NAME = "harmful";
+    private static final String DATABASE_NAME = "harmful.db";
     private static final String DATABASE_TABLE = "toxin";
     private static final int DATABASE_VERSION = 1;
 
@@ -43,13 +43,29 @@ public class ToxinDBAdapter {
     }
 
     /**
-     * 전체 데이터를 얻어온다.
+     * 전체 데이터를 얻어온다.(최대 30개 데이터를 얻어온다.)
      * @return
      */
     public Cursor fetchAllToxins() {
         return mDb.query(DATABASE_TABLE,
                 new String[] { KEY_ROWID, KEY_KOR, KEY_ENG, KEY_KEYWORD, KEY_CONTENTS },
-                null, null, null, null, null);
+                null, null, null, null, "rowid ASC", "100");
+    }
+
+    public Cursor fetchToxins(String strSearch) throws SQLException {
+//        Cursor mCursor = mDb.query(true, DATABASE_TABLE, new String[] { KEY_ROWID, KEY_KOR, KEY_ENG, KEY_KEYWORD, KEY_CONTENTS }, KEY_KEYWORD
+//                + "LIKE %" + strSearch, null, null, null, null, null);
+//        if (mCursor != null) {
+//            mCursor.moveToFirst();
+//        }
+//        return mCursor;
+
+        String sql = "SELECT rowid, kor, eng, keyword, contents FROM toxin WHERE keyword LIKE '%" + strSearch + "%'";
+        Cursor mCursor = mDb.rawQuery(sql, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
     }
 
     /**

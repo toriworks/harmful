@@ -3,6 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linear_search_data"
         android:orientation="vertical">
 
     <RelativeLayout
@@ -11,14 +12,14 @@
         android:background="@drawable/rounded_corner">
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="영문제목"
                 android:textSize="@dimen/big_font_size"
-                android:textColor="@color/default_black"
+                android:textColor="@color/default_dark_gray"
                 android:id="@+id/text_eng_title"
                 android:layout_marginLeft="5sp"
-                android:layout_marginRight="5sp"
+                android:layout_marginRight="45sp"
                 android:layout_marginTop="5sp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"/>
@@ -27,10 +28,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="한글제목"
+                android:textColor="@color/default_gray"
                 android:id="@+id/text_kor_title"
-                android:layout_marginTop="5sp"
+                android:layout_marginTop="2sp"
                 android:layout_below="@+id/text_eng_title"
                 android:layout_alignLeft="@+id/text_eng_title"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/image_detail"
+                android:src="@drawable/ic_detail"
+                android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
     </RelativeLayout>
 
     <View

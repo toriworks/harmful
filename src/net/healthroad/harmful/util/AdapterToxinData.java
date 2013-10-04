@@ -1,11 +1,13 @@
 package net.healthroad.harmful.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.healthroad.harmful.R;
@@ -18,6 +20,8 @@ public class AdapterToxinData extends ArrayAdapter<Toxin> {
 
     /** 컨텍스트 */
     private Context ctx;
+    /** 액티비티 */
+    private IDataTransfer cb;
     /** 데이터 목록 객체 */
     private List<Toxin> listData;
     /** 레이아웃 객체 */
@@ -33,11 +37,12 @@ public class AdapterToxinData extends ArrayAdapter<Toxin> {
      * @param textViewResourceId 뷰 레이어 아이디
      * @param listData 출력 데이터
      */
-    public AdapterToxinData(Context context, int textViewResourceId, List<Toxin> listData) {
+    public AdapterToxinData(Context context, int textViewResourceId, List<Toxin> listData, IDataTransfer callback) {
         super(context, textViewResourceId, listData);
-        this.ctx = ctx;
+        this.ctx = context;
         this.listData = listData;
         this.layoutId = textViewResourceId;
+        this.cb = callback;
 
         li = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -73,6 +78,7 @@ public class AdapterToxinData extends ArrayAdapter<Toxin> {
 
             // 홀더 패턴 사용
             holder = new ToxinHolder();
+            holder.linearSearchData = (LinearLayout) convertView.findViewById(R.id.linear_search_data);
             holder.textEng = (TextView) convertView.findViewById(R.id.text_eng_title);
             holder.textKor = (TextView) convertView.findViewById(R.id.text_kor_title);
 
@@ -83,6 +89,15 @@ public class AdapterToxinData extends ArrayAdapter<Toxin> {
 
         holder.textEng.setText(listData.get(pos).getEng());
         holder.textKor.setText(listData.get(pos).getKor());
+
+        holder.linearSearchData.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "선택된 데이터의 인덱스:" + listData.get(pos).getIdx());
+                cb.dataTransfer(listData.get(pos).getIdx());
+            }
+        });
 
         return convertView;
     }

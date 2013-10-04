@@ -39,11 +39,12 @@ public class UIApplication extends Application {
             if(!file.exists()) {
                 file.mkdirs();
             } else {
-                File copyFile = new File(copyCheckFullPath);
-                if(copyFile.exists()) {
-                    Log.d(TAG, "이미 DB파일이 설치되어 있음");
-                    return;
-                }
+// TODO : 매번 복사하도록 임시로 수정되었음. 나중에는 고정으로 변경 예정
+//                File copyFile = new File(copyCheckFullPath);
+//                if(copyFile.exists()) {
+//                    Log.d(TAG, "이미 DB파일이 설치되어 있음");
+//                    return;
+//                }
             }
 
             Log.d(TAG, "DB파일 복사 수행");

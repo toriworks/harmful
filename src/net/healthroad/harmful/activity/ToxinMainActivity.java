@@ -8,32 +8,40 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.*;
 import net.healthroad.harmful.R;
-import net.healthroad.harmful.util.AdapterToxinData;
-import net.healthroad.harmful.util.ICommonCodes;
-import net.healthroad.harmful.util.Toxin;
-import net.healthroad.harmful.util.ToxinDBAdapter;
+import net.healthroad.harmful.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToxinMainActivity extends Activity {
+public class ToxinMainActivity extends Activity implements IDataTransfer {
 
     public static String TAG = "Harmful";
 
-    /** 검색 결과가 없는 경우 레이아웃 */
-    private static RelativeLayout relativeNoResult;
-    /** 리스트 뷰 */
+    /**
+     * 검색 결과가 없는 경우 레이아웃
+     */
+    private static LinearLayout relativeNoResult;
+    /**
+     * 데이터 전체보기 버튼
+     */
+    private static Button buttonAllData;
+    /**
+     * 리스트 뷰
+     */
     private static ListView listView;
-    /** 뷰에 출력할 데이터 */
+    /**
+     * 뷰에 출력할 데이터
+     */
     private List<Toxin> listToxinData = new ArrayList<Toxin>();
-    /** 데이터 어뎁터 */
+    /**
+     * 데이터 어뎁터
+     */
     private AdapterToxinData adapterToxinData;
-    /** SQLite 어뎁터 */
+    /**
+     * SQLite 어뎁터
+     */
     private ToxinDBAdapter toxinDBAdapter;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -71,74 +79,84 @@ public class ToxinMainActivity extends Activity {
      */
     private void initScreenComponents() {
         // 검색 결과 없음 표시용
-        relativeNoResult = (RelativeLayout) findViewById(R.id.relative_no_result);
+        relativeNoResult = (LinearLayout) findViewById(R.id.relative_no_result);
+        buttonAllData = (Button) findViewById(R.id.button_all_data);
+        buttonAllData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadData("", "");
+            }
+        });
 
         listView = (ListView) findViewById(R.id.list_search);
         adapterToxinData = new AdapterToxinData(getApplicationContext(), R.layout.list_search_data,
-                listToxinData);
+                listToxinData, this);
 
         listView.setAdapter(adapterToxinData);
     }
 
     /**
      * 데이터를 읽어온다.
+     *
      * @param strSearch 검색어
-     * @param strType 검색타입
+     * @param strType   검색타입
      */
     private void loadData(String strSearch, String strType) {
         int length = strSearch.length();
-        if(length > 0) {
+        Cursor allDataCursor = null;
+        if (length > 0) {
             Log.d(TAG, "검색어로 검색하기");
-            Cursor allDataCursor = toxinDBAdapter.fetchToxins(strSearch);
-            Log.d(TAG, "전체 데이터 수:" + allDataCursor.getCount());
-
-            listToxinData.clear();
-            if (allDataCursor != null ) {
-                if  (allDataCursor.moveToFirst()) {
-                    do {
-                        int rowid = allDataCursor.getInt(allDataCursor.getColumnIndex("rowid"));
-                        String engData = allDataCursor.getString(allDataCursor.getColumnIndex("eng"));
-                        String korData = allDataCursor.getString(allDataCursor.getColumnIndex("kor"));
-                        String keywordData = allDataCursor.getString(allDataCursor.getColumnIndex("keyword"));
-                        String contentsData = allDataCursor.getString(allDataCursor.getColumnIndex("contents"));
-
-                        Log.d(TAG, rowid + ">" + engData + ":" + korData + ":" + keywordData + ":" + contentsData);
-
-                        Toxin toxin = new Toxin(rowid, korData, engData, keywordData, contentsData);
-                        listToxinData.add(toxin);
-
-                    }while (allDataCursor.moveToNext());
-                }
-                allDataCursor.close();
+            if (strType.equals(ICommonCodes.SEARCH_TYPE_PHASE)) {
+                allDataCursor = toxinDBAdapter.fetchToxins(strSearch, strType);
+            } else {
+                allDataCursor = toxinDBAdapter.fetchToxins(strSearch, strType);
             }
-
-            adapterToxinData.notifyDataSetChanged();
-        } else {
+        } else if (length == 0 && strType.equals("")) {
             Log.d(TAG, "전체 데이터 출력하기");
-            Cursor allDataCursor = toxinDBAdapter.fetchAllToxins();
+            allDataCursor = toxinDBAdapter.fetchAllToxins();
+        }
+
+        if (null != allDataCursor) {
             Log.d(TAG, "전체 데이터 수:" + allDataCursor.getCount());
-
-            listToxinData.clear();
-            if (allDataCursor != null ) {
-                if  (allDataCursor.moveToFirst()) {
-                    do {
-                        int rowid = allDataCursor.getInt(allDataCursor.getColumnIndex("rowid"));
-                        String engData = allDataCursor.getString(allDataCursor.getColumnIndex("eng"));
-                        String korData = allDataCursor.getString(allDataCursor.getColumnIndex("kor"));
-                        String keywordData = allDataCursor.getString(allDataCursor.getColumnIndex("keyword"));
-                        String contentsData = allDataCursor.getString(allDataCursor.getColumnIndex("contents"));
-
-                        Log.d(TAG, rowid + ">" + engData + ":" + korData + ":" + keywordData + ":" + contentsData);
-
-                        Toxin toxin = new Toxin(rowid, korData, engData, keywordData, contentsData);
-                        listToxinData.add(toxin);
-
-                    }while (allDataCursor.moveToNext());
-                }
-                allDataCursor.close();
+            if (allDataCursor.getCount() == 0) {
+                relativeNoResult.setVisibility(View.VISIBLE);
+            } else {
+                relativeNoResult.setVisibility(View.GONE);
             }
 
+            // 전에 검색목록을 삭제
+            listToxinData.clear();
+
+            // 검색된 데이터를 리스트뷰에 담기
+            showSearchData(allDataCursor);
+
             adapterToxinData.notifyDataSetChanged();
+        }
+    }
+
+    /**
+     * 검색된 데이터를 리스트뷰에 담아둔다.
+     *
+     * @param allDataCursor
+     */
+    private void showSearchData(Cursor allDataCursor) {
+        if (allDataCursor != null) {
+            if (allDataCursor.moveToFirst()) {
+                do {
+                    int rowid = allDataCursor.getInt(allDataCursor.getColumnIndex("rowid"));
+                    String engData = allDataCursor.getString(allDataCursor.getColumnIndex("eng"));
+                    String korData = allDataCursor.getString(allDataCursor.getColumnIndex("kor"));
+                    String keywordData = allDataCursor.getString(allDataCursor.getColumnIndex("keyword"));
+                    String contentsData = allDataCursor.getString(allDataCursor.getColumnIndex("contents"));
+
+                    Log.d(TAG, rowid + ">" + engData + ":" + korData + ":" + keywordData + ":" + contentsData);
+
+                    Toxin toxin = new Toxin(rowid, korData, engData, keywordData, contentsData);
+                    listToxinData.add(toxin);
+
+                } while (allDataCursor.moveToNext());
+            }
+            allDataCursor.close();
         }
     }
 
@@ -202,6 +220,7 @@ public class ToxinMainActivity extends Activity {
 
     /**
      * 검색어 창에서 검색어 값을 얻는다.
+     *
      * @param requestCode
      * @param resultCode
      * @param data
@@ -210,9 +229,9 @@ public class ToxinMainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "requestCode:" + requestCode + ", resultCode:" + resultCode + ", OK:" + Activity.RESULT_OK);
 
-        if(Activity.RESULT_OK == resultCode) {
+        if (Activity.RESULT_OK == resultCode) {
             // 검색창에서 값이 도착했다면 처리
-            if(ICommonCodes.SEARCH_REQ_CODE == requestCode) {
+            if (ICommonCodes.SEARCH_REQ_CODE == requestCode) {
                 String strSearch = data.getStringExtra(ICommonCodes.SEARCH_BUNDLE_KEY);
                 String strType = data.getStringExtra(ICommonCodes.SEARCH_BUNDLE_TYPE_KEY);
                 Log.d(TAG, "검색어:" + strSearch + ", 유형:" + strType);
@@ -243,5 +262,16 @@ public class ToxinMainActivity extends Activity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void dataTransfer(int idx) {
+        Log.d(TAG, "전달받은 index값:" + idx);
+
+        Intent dIntent = new Intent();
+        dIntent.setClass(getApplicationContext(), ToxinDetailActivity.class);
+        dIntent.putExtra(ICommonCodes.TOXIN_DETAIL_BUNDLE_KEY, idx);
+
+        startActivity(dIntent);
     }
 }

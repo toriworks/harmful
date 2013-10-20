@@ -50,7 +50,7 @@ public class ToxinDBAdapter {
     public Cursor fetchAllToxins() {
         return mDb.query(DATABASE_TABLE,
                 new String[] { KEY_ROWID, KEY_KOR, KEY_ENG, KEY_KEYWORD, KEY_CONTENTS },
-                null, null, null, null, "rowid ASC", "100");
+                null, null, null, null, "eng ASC", "500");
     }
 
     public Cursor fetchToxins(String strSearch, String strType) throws SQLException {

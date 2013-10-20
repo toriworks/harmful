@@ -2,6 +2,7 @@ package net.healthroad.harmful.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,7 +88,17 @@ public class AdapterToxinData extends ArrayAdapter<Toxin> {
             holder = (ToxinHolder) convertView.getTag();
         }
 
-        holder.textEng.setText(listData.get(pos).getEng());
+        // 긴 문자열 처리
+        String strEng = listData.get(pos).getEng();
+
+        int iEng = strEng.length();
+        if(iEng >= 25) {
+            holder.textEng.setTextScaleX(0.80f);
+        } else {
+            holder.textEng.setTextScaleX(0.98f);
+        }
+
+        holder.textEng.setText(Html.fromHtml(strEng));
         holder.textKor.setText(listData.get(pos).getKor());
 
         holder.linearSearchData.setOnClickListener(new View.OnClickListener() {

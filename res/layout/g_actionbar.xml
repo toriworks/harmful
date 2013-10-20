@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="40sp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50sp">
 
 
     <TextView
             android:layout_width="550dp"
-            android:layout_height="40sp"
+            android:layout_height="match_parent"
             android:text="제목"
             android:textSize="@dimen/default_font_size"
             android:layout_marginRight="40sp"
@@ -21,5 +21,5 @@
             android:id="@+id/button_home"
             android:background="@drawable/ic_home_selector"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/text_g_title"/>
+            android:layout_centerVertical="true" />
 </RelativeLayout>

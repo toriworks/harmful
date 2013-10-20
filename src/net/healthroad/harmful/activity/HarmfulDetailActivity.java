@@ -77,6 +77,11 @@ public class HarmfulDetailActivity extends Activity {
         // 타이틀 생성
         String title = getTitleString();
         TextView tv = (TextView) bar.getCustomView().findViewById(R.id.text_g_title);
+        if(title.length() > 10) {
+            tv.setTextScaleX(0.75f);
+        } else {
+            tv.setTextScaleX(0.98f);
+        }
         tv.setText(title);
 
         // 메인으로 이동 버튼

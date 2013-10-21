@@ -4,8 +4,8 @@
     <string name="btn_harmful">담배 유해 정보</string>
     <string name="btn_toxin">담배 독성 물질</string>
     <string name="btn_harmful_info">담배 유해성 정보</string>
-    <string name="btn_harmful_component">담배 유해성분 목록(HPHCs, harmful and potentially harmful constituents)에 대한 설명</string>
-    <string name="btn_harmful_effect">담배 및 담배 대체품 (전자담배, 씹는담배 등)이 우리 몸에 끼치는 영향</string>
+    <string name="btn_harmful_component">담배 유해성분 목록</string>
+    <string name="btn_harmful_effect">담배 및 담배 대체품이 우리 몸에 끼치는 영향</string>
 
     <!-- Font size -->
     <dimen name="big_font_size">24sp</dimen>
@@ -17,6 +17,6 @@
     <!-- Colors -->
     <color name="default_white">#ffffff</color>
     <color name="default_black">#000000</color>
-    <color name="default_dark_gray">#464646</color>
+    <color name="default_dark_gray">#6a6a6a</color>
     <color name="default_gray">#878787</color>
 </resources>

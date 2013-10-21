@@ -39,54 +39,55 @@
         android:layout_height="50sp"
         android:layout_marginTop="10sp"
         android:orientation="horizontal"
+        android:gravity="center_horizontal"
         android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㄱ"
                 android:id="@+id/button_kor_1" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㄴ"
                 android:id="@+id/button_kor_2" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㄷ"
                 android:id="@+id/button_kor_3" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㄹ"
                 android:id="@+id/button_kor_4" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅁ"
                 android:id="@+id/button_kor_5" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅂ"
                 android:id="@+id/button_kor_6" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅅ"
                 android:id="@+id/button_kor_7" android:layout_gravity="center"/>
     </LinearLayout>
@@ -95,54 +96,55 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅇ"
                 android:id="@+id/button_kor_8" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅈ"
                 android:id="@+id/button_kor_9" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅊ"
                 android:id="@+id/button_kor_10" android:layout_gravity="center"/>
          <Button
                  android:layout_width="45sp"
                  android:layout_height="45sp"
                  android:background="@drawable/btn_selector"
-                 android:layout_margin="5sp"
+                 android:layout_margin="2sp"
                  android:text="ㅋ"
                  android:id="@+id/button_kor_11" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅌ"
                 android:id="@+id/button_kor_12" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅍ"
                 android:id="@+id/button_kor_13" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="ㅎ"
                 android:id="@+id/button_kor_14" android:layout_gravity="center"/>
     </LinearLayout>
@@ -153,54 +155,55 @@
             android:layout_height="50sp"
             android:layout_marginTop="20sp"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="A"
                 android:id="@+id/button_eng_1" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="B"
                 android:id="@+id/button_eng_2" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="C"
                 android:id="@+id/button_eng_3" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="D"
                 android:id="@+id/button_eng_4" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="E"
                 android:id="@+id/button_eng_5" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="F"
                 android:id="@+id/button_eng_6" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="G"
                 android:id="@+id/button_eng_7" android:layout_gravity="center"/>
     </LinearLayout>
@@ -209,54 +212,55 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="H"
                 android:id="@+id/button_eng_8" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="I"
                 android:id="@+id/button_eng_9" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="J"
                 android:id="@+id/button_eng_10" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="K"
                 android:id="@+id/button_eng_11" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="L"
                 android:id="@+id/button_eng_12" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="M"
                 android:id="@+id/button_eng_13" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="N"
                 android:id="@+id/button_eng_14" android:layout_gravity="center"/>
     </LinearLayout>
@@ -265,54 +269,55 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="O"
                 android:id="@+id/button_eng_15" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="P"
                 android:id="@+id/button_eng_16" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="Q"
                 android:id="@+id/button_eng_17" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="R"
                 android:id="@+id/button_eng_18" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="S"
                 android:id="@+id/button_eng_19" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="T"
                 android:id="@+id/button_eng_20" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="U"
                 android:id="@+id/button_eng_21" android:layout_gravity="center"/>
     </LinearLayout>
@@ -321,54 +326,55 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="V"
                 android:id="@+id/button_eng_22" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="W"
                 android:id="@+id/button_eng_23" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="X"
                 android:id="@+id/button_eng_24" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="Y"
                 android:id="@+id/button_eng_25" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="Z"
                 android:id="@+id/button_eng_26" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@android:color/white"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text=""
                 android:id="@+id/button_eng_dummy1" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@android:color/white"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text=""
                 android:id="@+id/button_eng_dummy2" android:layout_gravity="center"/>
     </LinearLayout>
@@ -379,54 +385,55 @@
             android:layout_height="50sp"
             android:layout_marginTop="20sp"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="1"
                 android:id="@+id/button_num_1" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="2"
                 android:id="@+id/button_num_2" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="3"
                 android:id="@+id/button_num_3" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="4"
                 android:id="@+id/button_num_4" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="5"
                 android:id="@+id/button_num_5" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="6"
                 android:id="@+id/button_num_6" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="7"
                 android:id="@+id/button_num_7" android:layout_gravity="center"/>
     </LinearLayout>
@@ -436,28 +443,57 @@
             android:layout_height="50sp"
             android:layout_marginBottom="10sp"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:background="@color/default_white">
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="8"
                 android:id="@+id/button_num_8" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="9"
                 android:id="@+id/button_num_9" android:layout_gravity="center"/>
         <Button
                 android:layout_width="45sp"
                 android:layout_height="45sp"
                 android:background="@drawable/btn_selector"
-                android:layout_margin="5sp"
+                android:layout_margin="2sp"
                 android:text="0"
                 android:id="@+id/button_num_0" android:layout_gravity="center"/>
+        <Button
+                android:layout_width="45sp"
+                android:layout_height="45sp"
+                android:background="@android:color/white"
+                android:layout_margin="2sp"
+                android:text=""
+                android:id="@+id/button_num_dummy1" android:layout_gravity="center"/>
+        <Button
+                android:layout_width="45sp"
+                android:layout_height="45sp"
+                android:background="@android:color/white"
+                android:layout_margin="2sp"
+                android:text=""
+                android:id="@+id/button_num_dummy2" android:layout_gravity="center"/>
+        <Button
+                android:layout_width="45sp"
+                android:layout_height="45sp"
+                android:background="@android:color/white"
+                android:layout_margin="2sp"
+                android:text=""
+                android:id="@+id/button_num_dummy1" android:layout_gravity="center"/>
+        <Button
+                android:layout_width="45sp"
+                android:layout_height="45sp"
+                android:background="@android:color/white"
+                android:layout_margin="2sp"
+                android:text=""
+                android:id="@+id/button_num_dummy2" android:layout_gravity="center"/>
     </LinearLayout>
 
 </LinearLayout>

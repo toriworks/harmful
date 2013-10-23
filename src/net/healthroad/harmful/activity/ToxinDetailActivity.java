@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import net.healthroad.harmful.R;
 import net.healthroad.harmful.util.ICommonCodes;
@@ -28,6 +30,8 @@ public class ToxinDetailActivity extends Activity {
     private static TextView textKorTitle;
     /** 내용출력용 뷰 */
     private static TextView textToxinDetail;
+    /** 상단 이미지 */
+    private static ImageView imageMark;
     /** SQLite 어뎁터 */
     private ToxinDBAdapter toxinDBAdapter;
 
@@ -71,6 +75,17 @@ public class ToxinDetailActivity extends Activity {
         textEngTitle = (TextView) findViewById(R.id.text_eng_title);
         textKorTitle = (TextView) findViewById(R.id.text_kor_title);
         textToxinDetail = (TextView) findViewById(R.id.textview_toxin_detail);
+
+        imageMark = (ImageView) findViewById(R.id.image_mark);
+        imageMark.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(ToxinDetailActivity.this, GuideActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**
@@ -152,13 +167,18 @@ public class ToxinDetailActivity extends Activity {
                     String korData = dataCursor.getString(dataCursor.getColumnIndex("kor"));
                     String keywordData = dataCursor.getString(dataCursor.getColumnIndex("keyword"));
                     String contentsData = dataCursor.getString(dataCursor.getColumnIndex("contents"));
+                    String imgs = dataCursor.getString(dataCursor.getColumnIndex("imgs"));
 
-                    Log.d(TAG, rowid + ">" + engData + ":" + korData + ":" + keywordData + ":" + contentsData);
+                    Log.d(TAG, rowid + ">" + imgs + ":" + engData + ":" + korData + ":" + keywordData + "::");
 
                     textEngTitle.setText(engData);
                     textKorTitle.setText(korData);
                     textToxinDetail.setText(Html.fromHtml(contentsData));
-                    // textToxinDetail.setText(Html.fromHtml("<h2>Title</h2><br><p>Description here</p>"));
+
+                    String uri = "drawable/" + imgs;
+                    int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                    Drawable image = getResources().getDrawable(imageResource);
+                    imageMark.setImageDrawable(image);
 
                 } while (dataCursor.moveToNext());
             }

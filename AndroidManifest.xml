@@ -30,5 +30,6 @@
         <activity android:name=".activity.ToxinMainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light"/>
         <activity android:name=".activity.SearchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
         <activity android:name=".activity.ToxinDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name=".activity.GuideActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"/>
     </application>
 </manifest>

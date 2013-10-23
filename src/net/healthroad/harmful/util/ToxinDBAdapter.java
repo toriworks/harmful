@@ -16,6 +16,7 @@ public class ToxinDBAdapter {
     public static final String KEY_ENG = "eng";
     public static final String KEY_KEYWORD = "keyword";
     public static final String KEY_CONTENTS = "contents";
+    public static final String KEY_IMGS = "imgs";
 
     private static final String DATABASE_NAME = "harmful.db";
     private static final String DATABASE_TABLE = "toxin";
@@ -49,7 +50,7 @@ public class ToxinDBAdapter {
      */
     public Cursor fetchAllToxins() {
         return mDb.query(DATABASE_TABLE,
-                new String[] { KEY_ROWID, KEY_KOR, KEY_ENG, KEY_KEYWORD, KEY_CONTENTS },
+                new String[] { KEY_ROWID, KEY_KOR, KEY_ENG, KEY_KEYWORD, KEY_CONTENTS, KEY_IMGS },
                 null, null, null, null, "eng ASC", "500");
     }
 
@@ -63,16 +64,16 @@ public class ToxinDBAdapter {
 
         String sql = "";
         if(strType.equals(ICommonCodes.SEARCH_TYPE_PHASE)) {
-            sql = "SELECT rowid, kor, eng, keyword, contents FROM toxin WHERE keyword LIKE '%" + strSearch + "%'";
+            sql = "SELECT rowid, kor, eng, keyword, contents, imgs FROM toxin WHERE keyword LIKE '%" + strSearch + "%'";
         } else if(strType.equals(ICommonCodes.SEARCH_TYPE_BUTTON)) {
             // 코드 포인트
             int codePoint = strSearch.codePointAt(0);
             if(codePoint >= "ㄱ".codePointAt(0) && codePoint <= "ㅎ".codePointAt(0)) {
                 sql = "SELECT rowid, kor, eng, keyword, contents FROM toxin WHERE " + getKorQuery(codePoint);
             } else if(codePoint >= "A".codePointAt(0) && codePoint <= "Z".codePointAt(0)) {
-                sql = "SELECT rowid, kor, eng, keyword, contents FROM toxin WHERE eng LIKE '" + strSearch + "%'";
+                sql = "SELECT rowid, kor, eng, keyword, contents, imgs FROM toxin WHERE eng LIKE '" + strSearch + "%'";
             } else {
-                sql = "SELECT rowid, kor, eng, keyword, contents FROM toxin WHERE kor LIKE '" + strSearch + "%'";
+                sql = "SELECT rowid, kor, eng, keyword, contents, imgs FROM toxin WHERE kor LIKE '" + strSearch + "%'";
                 sql = sql + " OR eng LIKE '" + strSearch + "%'";
             }
         }
@@ -92,7 +93,7 @@ public class ToxinDBAdapter {
      * @throws SQLException
      */
     public Cursor fetchToxins(long rowId) throws SQLException {
-        Cursor mCursor = mDb.query(true, DATABASE_TABLE, new String[] { KEY_ROWID, KEY_KOR, KEY_ENG, KEY_KEYWORD, KEY_CONTENTS }, KEY_ROWID
+        Cursor mCursor = mDb.query(true, DATABASE_TABLE, new String[] { KEY_ROWID, KEY_KOR, KEY_ENG, KEY_KEYWORD, KEY_CONTENTS, KEY_IMGS}, KEY_ROWID
                 + "=" + rowId, null, null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();

@@ -29,7 +29,7 @@ public class ToxinDetailActivity extends Activity {
     /** 한글제목 */
     private static TextView textKorTitle;
     /** 내용출력용 뷰 */
-    private static TextView textToxinDetail;
+    private static WebView textToxinDetail;
     /** 상단 이미지 */
     private static ImageView imageMark;
     /** SQLite 어뎁터 */
@@ -74,7 +74,7 @@ public class ToxinDetailActivity extends Activity {
     private void initScreenComponents() {
         textEngTitle = (TextView) findViewById(R.id.text_eng_title);
         textKorTitle = (TextView) findViewById(R.id.text_kor_title);
-        textToxinDetail = (TextView) findViewById(R.id.textview_toxin_detail);
+        textToxinDetail = (WebView) findViewById(R.id.textview_toxin_detail);
 
         imageMark = (ImageView) findViewById(R.id.image_mark);
         imageMark.setOnClickListener(new View.OnClickListener() {
@@ -173,13 +173,21 @@ public class ToxinDetailActivity extends Activity {
 
                     textEngTitle.setText(engData);
                     textKorTitle.setText(korData);
-                    textToxinDetail.setText(Html.fromHtml(contentsData));
+                    //textToxinDetail.setText(Html.fromHtml(contentsData));
+                    int version = android.os.Build.VERSION.SDK_INT;
+                    if(version >= 14) {
+                        textToxinDetail.loadData(contentsData, "text/html; charset=UTF-8", null);
+                    } else {
+                        textToxinDetail.loadData(contentsData, "text/html", "UTF-8");
+                    }
 
-                    String uri = "drawable/" + imgs;
-                    int imageResource = getResources().getIdentifier(uri, null, getPackageName());
-                    Drawable image = getResources().getDrawable(imageResource);
-                    imageMark.setImageDrawable(image);
+                    if(!imgs.equals("")) {
+                        String uri = "drawable/" + imgs;
+                        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                        Drawable image = getResources().getDrawable(imageResource);
+                        imageMark.setImageDrawable(image);
 
+                    }
                 } while (dataCursor.moveToNext());
             }
             dataCursor.close();

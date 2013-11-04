@@ -5,7 +5,7 @@
     <string name="btn_toxin">담배 독성 물질</string>
     <string name="btn_harmful_info">담배 유해성 정보</string>
     <string name="btn_harmful_component">담배 유해성분 목록</string>
-    <string name="btn_harmful_effect">담배 및 담배 대체품이 우리 몸에 끼치는 영향</string>
+    <string name="btn_harmful_effect">흡연의 사회경제적 영향</string>
 
     <!-- Font size -->
     <dimen name="big_font_size">24sp</dimen>

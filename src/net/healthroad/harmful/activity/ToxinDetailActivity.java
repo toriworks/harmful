@@ -176,9 +176,11 @@ public class ToxinDetailActivity extends Activity {
                     //textToxinDetail.setText(Html.fromHtml(contentsData));
                     int version = android.os.Build.VERSION.SDK_INT;
                     if(version >= 14) {
-                        textToxinDetail.loadData(contentsData, "text/html; charset=UTF-8", null);
+                        //textToxinDetail.loadData(contentsData, "text/html; charset=UTF-8", null);
+                        textToxinDetail.loadDataWithBaseURL("file:///android_asset/", contentsData , "text/html", "UTF-8", null);
                     } else {
-                        textToxinDetail.loadData(contentsData, "text/html", "UTF-8");
+                        //textToxinDetail.loadData(contentsData, "text/html", "UTF-8");
+                        textToxinDetail.loadDataWithBaseURL("file:///android_asset/", contentsData, "text/html", "UTF-8", null);
                     }
 
                     if(!imgs.equals("")) {
